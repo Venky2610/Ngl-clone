@@ -2,66 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Before It Ends</title>
+  <title>Talk to Venky — No Judgement Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #0f0f0f;
-      color: #eeeeee;
+      background: url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1050&q=80') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 40px 20px;
+      color: #fff;
+      padding: 25px;
     }
-
+    .container {
+      background: rgba(0,0,0,0.75);
+      max-width: 500px;
+      margin: auto;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
     h1 {
       font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 10px;
-      color: #ff6f61;
+      margin-bottom: 15px;
+      color: #fffaaf;
     }
-
-    p.sub {
+    p {
       font-size: 14px;
-      color: #aaaaaa;
-      margin-bottom: 30px;
+      color: #ccc;
+      margin-bottom: 20px;
     }
-
-    textarea {
-      width: 90%;
-      max-width: 400px;
-      height: 120px;
-      background-color: #1a1a1a;
-      border: none;
+    input, textarea {
+      width: 100%;
+      background: #222;
       color: #eee;
+      border: none;
+      border-radius: 6px;
       padding: 10px;
-      border-radius: 5px;
-      resize: none;
-      font-size: 15px;
+      margin-bottom: 15px;
+      font-size: 14px;
     }
-
     button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      font-size: 15px;
-      background-color: #ff6f61;
+      background: #ff4d4d;
       color: white;
       border: none;
-      border-radius: 4px;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 14px;
     }
-
     button:hover {
-      background-color: #ff4c42;
+      background: #e03e3e;
     }
   </style>
 </head>
 <body>
-  <h1>Let me know before it all ends – no advices please, it's all decided.</h1>
-  <p class="sub">You’ll never hear from me. Just say what you feel. Or don’t. I won’t ask again.</p>
+  <div class="container">
+    <h1>Want to ask or tell something? Let me know before it all ends.</h1>
+    <p>This website is designed for people who feel lonely, disconnected, and unable to talk openly. We're here to give emotional support — anonymously, without judgment.</p>
 
-  <form id="anonForm">
-    <textarea id="message" placeholder="Write something if you feel like..." required></textarea><br>
-    <button type="submit">Send</button>
-  </form>
+    <input id="nameInput" placeholder="Your name (optional - will stay anonymous)">
+    <textarea id="message" rows="5" placeholder="Say anything you never told me before..."></textarea>
+    <button id="sendBtn">Send Anonymously</button>
+
+    <div class="buttons">
+      <button onclick="redirectChat()">💬 Talk to Venky Anonymously</button>
+      <button onclick="likeVenky()">👍 Like Venky</button>
+      <button onclick="dislikeVenky()">👎 Dislike Venky</button>
+    </div>
+  </div>
+
+  <!-- Tawk.to Chat Widget -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/dfda952578b89acffbaa12a475bf7942a103046b/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
 
   <script src="script.js"></script>
 </body>
